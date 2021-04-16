@@ -1,0 +1,9 @@
+" Optimized Solarized colorschemes. Best served with true-color terminals!
+
+Plug  'lifepillar/vim-solarized8'
+
+set termguicolors
+set background=dark
+autocmd vimenter * ++nested colorscheme solarized8
+
+" vim:ft=vim
