@@ -1,0 +1,20 @@
+# Make sure aliases work with sudo
+alias sudo="sudo "
+
+# Vim
+alias vi=vim
+alias vim=nvim
+
+# Colors everywhere!
+alias ls="ls --color=auto"
+alias grep="grep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias egrep="egrep --color=auto"
+
+# ls
+alias ll="ls -Alh --group-directories-first --time-style=long-iso"
+alias lt="ls -Alhc --group-directories-first --time-style=long-iso"
+alias lsz="ls -AlhS --group-directories-first --time-style=long-iso"
+
+# Misc
+alias cp="cp -i" # confirm before overwriting something

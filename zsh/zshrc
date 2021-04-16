@@ -1,0 +1,89 @@
+# ===========================
+# == Begin oh-my-zsh stuff ==
+# ===========================
+#
+export ZSH="$HOME/.oh-my-zsh"
+
+# Theme
+ZSH_THEME="agnoster"
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
+
+# Change the command execution time format
+HIST_STAMPS="yyyy-mm-dd"
+
+# Plugins
+plugins=(
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+)
+
+# Hide user when it's just me
+DEFAULT_USER="vincent"
+
+source $ZSH/oh-my-zsh.sh
+
+# Plugin configs
+# zsh-autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
+
+# =========================
+# == End oh-my-zsh stuff ==
+# =========================
+
+# =====================
+# == Begin variables ==
+# =====================
+
+# Preferred editor
+export EDITOR='vim'
+export VISUAL='vim'
+
+# =====================
+# == End variables ==
+# =====================
+
+# ===================
+# == Begin options ==
+# ===================
+#
+setopt extendedglob
+setopt nocaseglob
+setopt rcexpandparam
+setopt nocheckjobs
+setopt numericglobsort
+setopt nobeep
+setopt appendhistory
+setopt histignorealldups
+setopt inc_append_history
+# Colored completion (different colors for dirs/files/etc)
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+# automatically find new executables in path
+zstyle ':completion:*' rehash true
+# Speed up completions
+zstyle ':completion:*' accept-exact '*(N)'
+HISTFILE=~/.zhistory
+HISTSIZE=10000
+SAVEHIST=10000
+# Don't consider certain characters part of the word
+WORDCHARS=${WORDCHARS//\/[&.;]}
+
+# =================
+# == End options ==
+# =================
+
+# ========================
+# == Begin extra scripts==
+# ========================
+
+# Aliases
+source $HOME/.dotfiles/aliases/shell
+
+# ======================
+# == End extra scripts==
+# ======================
+
