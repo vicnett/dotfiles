@@ -73,8 +73,8 @@ then
 elif [[ -d "$OG_NVIM_DIR_PATH" ]]; then
   echo nvim config directory exists. Saving OG as nvim.og and \
     replacing with link to dotfile location...
-  mv $OG_NVIM_DIR_PATH $OG_NVIM_DIR_PATH.og && ln -s $NVIM_DIR_PATH
-  $OG_NVIM_DIR_PATH
+  mv $OG_NVIM_DIR_PATH $OG_NVIM_DIR_PATH.og && ln -s $NVIM_DIR_PATH \
+$OG_NVIM_DIR_PATH
   if [[ $? -eq 0 ]]
   then
     echo Success!
