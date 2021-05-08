@@ -82,9 +82,12 @@ WORDCHARS=${WORDCHARS//\/[&.;]}
 
 # Anything under ~/.zshrc.d
 
-for rcfile in $HOME/.zshrc.d/*.zsh; do
-  source $rcfile
-done
+if [[ -z ~/.zshrc.d ]]
+then
+  for rcfile in $HOME/.zshrc.d/*.zsh; do
+    source $rcfile
+  done
+fi
 
 # Aliases
 source $HOME/.dotfiles/aliases/shell
