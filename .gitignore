@@ -1,2 +1,4 @@
 .netrwhist
 byobu/plugins/**
+byobu/.metadata_available
+byobu/.ssh-agent
