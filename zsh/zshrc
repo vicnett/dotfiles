@@ -83,7 +83,7 @@ WORDCHARS=${WORDCHARS//\/[&.;]}
 # Anything under ~/.zshrc.d
 
 for rcfile in $HOME/.zshrc.d/*.zsh; do
-  . $rcfile
+  source $rcfile
 done
 
 # Aliases
