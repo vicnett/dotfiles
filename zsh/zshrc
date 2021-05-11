@@ -82,9 +82,10 @@ WORDCHARS=${WORDCHARS//\/[&.;]}
 
 # Anything under ~/.zshrc.d
 
-if [[ -z ~/.zshrc.d ]]
+rcfiles_dir="$HOME/.zshrc.d"
+if [[ -d $rcfiles_dir ]]
 then
-  for rcfile in $HOME/.zshrc.d/*.zsh; do
+  for rcfile in $rcfiles_dir/*.zsh; do
     source $rcfile
   done
 fi
