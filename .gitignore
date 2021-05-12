@@ -2,3 +2,4 @@
 byobu/plugins/**
 byobu/.metadata_available
 byobu/.ssh-agent
+zsh/oh-my-zsh-custom-dir/plugins/**
