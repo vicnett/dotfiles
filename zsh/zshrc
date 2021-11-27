@@ -43,8 +43,8 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 # =====================
 
 # Preferred editor
-export EDITOR='vim'
-export VISUAL='vim'
+export EDITOR='nvim'
+export VISUAL='nvim'
 
 # ===================
 # == End variables ==
