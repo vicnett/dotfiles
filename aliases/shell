@@ -13,7 +13,8 @@ alias egrep="egrep --color=auto"
 
 # ls
 alias ll="ls -Alh --group-directories-first --time-style=long-iso"
-alias lt="ls -Alhc --group-directories-first --time-style=long-iso"
+alias lt="ls -Althc --group-directories-first --time-style=long-iso"
+alias ltd="ls -Althcr --group-directories-first --time-style=long-iso"
 alias lsz="ls -AlhS --group-directories-first --time-style=long-iso"
 
 # Misc
