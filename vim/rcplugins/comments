@@ -1,0 +1,5 @@
+" Optimized Solarized colorschemes. Best served with true-color terminals!
+
+Plug  'tomtom/tcomment_vim'
+
+" vim:ft=vim
