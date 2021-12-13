@@ -99,3 +99,43 @@ fi
 # ===============
 # == End nvim ===
 # ===============
+
+# ==================
+# == Begin byobu ===
+# ==================
+
+# Define paths
+BYOBU_DIR_PATH="$BASEDIR/byobu"
+OG_BYOBU_DIR_PATH="$HOME/.byobu"
+
+# Handle .byobu directory linking
+echo Checking for existing byobu config directory...
+if [[ -h $OG_BYOBU_DIR_PATH ]] &&
+  [[ "$(readlink -f $OG_BYOBU_DIR_PATH)" = $BYOBU_DIR_PATH ]]
+then
+  echo byobu config directory already points to dotfile location. \
+    No action taken.
+elif [[ -d "$OG_BYOBU_DIR_PATH" ]]; then
+  echo byobu config directory exists. Saving OG as byobu.og and \
+    replacing with link to dotfile location...
+  mv $OG_BYOBU_DIR_PATH $OG_BYOBU_DIR_PATH.og && ln -s $BYOBU_DIR_PATH \
+$OG_BYOBU_DIR_PATH
+  if [[ $? -eq 0 ]]
+  then
+    echo Success!
+  else
+    echo "Something went wrong :("
+    exit 1
+  fi
+else
+  echo byobu config directory does not exist. Make sure Byobu is installed! \
+    Creating link to dotfile location...
+  ln -s $BYOBU_DIR_PATH $OG_BYOBU_DIR_PATH
+  if [[ $? -eq 0 ]]
+  then
+    echo Success!
+  else
+    echo "Something went wrong :("
+    exit 1
+  fi
+fi
