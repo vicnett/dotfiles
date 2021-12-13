@@ -15,6 +15,7 @@ BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 ZSHRC_PATH="$BASEDIR/zsh/zshrc"
 OG_ZSHRC_PATH="$HOME/.zshrc"
 OH_MY_ZSH_PATH="$HOME/.oh-my-zsh"
+
 # Stop if oh-my-zsh doesn't seem to be installed
 if [[ ! -d "$OH_MY_ZSH_PATH" ]]
 then
@@ -63,7 +64,7 @@ fi
 NVIM_DIR_PATH="$BASEDIR/vim"
 OG_NVIM_DIR_PATH="$HOME/.config/nvim"
 
-# Handle .zshrc linking
+# Handle nvim directory linking
 echo Checking for existing nvim config directory...
 if [[ -h $OG_NVIM_DIR_PATH ]] &&
   [[ "$(readlink -f $OG_NVIM_DIR_PATH)" = $NVIM_DIR_PATH ]]
