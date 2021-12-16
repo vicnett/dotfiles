@@ -23,6 +23,7 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
+  fzf
 )
 
 # Hide user when it's just me
