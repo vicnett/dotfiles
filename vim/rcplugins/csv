@@ -1,0 +1,5 @@
+" csv - A Filetype plugin for csv files
+
+Plug 'chrisbra/csv.vim'
+
+" vim:ft=vim
