@@ -93,6 +93,9 @@ WORDCHARS=${WORDCHARS//\/[&.;]}
 # == Begin extra scripts==
 # ========================
 
+# Aliases
+source $HOME/.dotfiles/aliases/shell
+
 # Anything under ~/.zshrc.d
 
 rcfiles_dir="$HOME/.zshrc.d"
@@ -102,9 +105,6 @@ then
     source $rcfile
   done
 fi
-
-# Aliases
-source $HOME/.dotfiles/aliases/shell
 
 # ======================
 # == End extra scripts==
