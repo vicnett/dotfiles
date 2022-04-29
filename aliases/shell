@@ -19,3 +19,6 @@ alias lsz="ls -AlhS --group-directories-first --time-style=long-iso"
 
 # Misc
 alias cp="cp -i" # confirm before overwriting something
+
+# Directories
+alias cddot="cd ~/.dotfiles"
