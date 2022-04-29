@@ -1,0 +1,6 @@
+[alias]
+	fp = push --force-with-lease
+	amend-no-edit = commit --amend --no-edit
+	rebase-branch = rebase -i `git merge-base HEAD origin/HEAD`
+	changed-files = !git --no-pager diff --name-only HEAD HEAD~1
+	branch-summary = !git --no-pager diff --compact-summary origin/HEAD HEAD

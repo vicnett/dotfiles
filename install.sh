@@ -139,3 +139,57 @@ else
     exit 1
   fi
 fi
+
+# ================
+# == End byobu ===
+# ================
+
+# ================
+# == Begin git ===
+# ================
+
+# Define paths
+OG_GITCONFIG_PATH="$HOME/.gitconfig"
+GIT_ALIAS_PATH="$BASEDIR/aliases/git"
+
+echo Checking .gitconfig includes...
+grep -qF "[include]" $OG_GITCONFIG_PATH
+if [[ $? -ne 0 ]]
+then
+  echo No [include] section found in .gitconfig. \
+    Adding ours...
+  git config --global include.path "$GIT_ALIAS_PATH"
+  if [[ $? -eq 0 ]]
+  then
+    echo Success!
+  else
+    echo "Something went wrong :("
+    exit 1
+  fi
+else
+  echo [include] section found in .gitconfig \
+    Checking for ours...
+  grep -qF "path = $GIT_ALIAS_PATH" $OG_GITCONFIG_PATH
+  if [[ $? -ne 0 ]]
+  then
+    echo Our aliases aren\'t included. \
+      Adding...
+    sed -i '' "/^\[include\]$/a\\
+	path = $GIT_ALIAS_PATH/
+" $OG_GITCONFIG_PATH
+  if [[ $? -eq 0 ]]
+  then
+    echo Success!
+  else
+    echo "Something went wrong :("
+    exit 1
+  fi
+  else
+    echo Our aliases are already included. \
+      No action taken.
+  fi
+fi
+
+# ==============
+# == End git ===
+# ==============
