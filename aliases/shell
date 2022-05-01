@@ -5,6 +5,9 @@ alias sudo="sudo "
 alias vi=vim
 alias vim=nvim
 
+# pip
+alias pip=pip3
+
 # Colors everywhere!
 alias ls="ls --color=auto"
 alias grep="grep --color=auto"
