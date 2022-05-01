@@ -1,5 +1,11 @@
+# Dotfiles dir
 export DOTFILES_DIR="$HOME/.dotfiles"
+
+# Path stuff
 PATH="$HOME/.local/bin:$PATH"
+# Ruby gems
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+export PATH="$PATH:$GEM_HOME/bin"
 
 # ===========================
 # == Begin oh-my-zsh stuff ==
