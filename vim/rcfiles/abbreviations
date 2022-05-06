@@ -1,0 +1,4 @@
+" Abbreviation for vertical split find
+cabbrev vsfind vert sfind
+
+" vim:ft=vim
