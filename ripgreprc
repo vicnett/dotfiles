@@ -1,0 +1,6 @@
+# Always match newlines with .
+--multiline-dotall
+
+# Search case-insensitively if the pattern is all-lowercase, and case-sensitively
+# otherwise.
+--smart-case

@@ -63,6 +63,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 export EDITOR='nvim'
 export VISUAL='nvim'
 
+# ripgrep config
+export RIPGREP_CONFIG_PATH="$DOTFILES_DIR/ripgreprc"
+
 # ===================
 # == End variables ==
 # ===================
