@@ -1,6 +1,6 @@
 # File path definitions
-export DOTFILES_DIR="$HOME/.dotfiles"
-export RCFILES_DIR="$HOME/.zshrc.d"
+DOTFILES_DIR="$HOME/.dotfiles"
+RCFILES_DIR="$HOME/.zshrc.d"
 
 # Path stuff
 PATH="$HOME/.local/bin:$PATH"
