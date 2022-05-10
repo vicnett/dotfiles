@@ -1,5 +1,6 @@
-# Dotfiles dir
+# File path definitions
 export DOTFILES_DIR="$HOME/.dotfiles"
+export RCFILES_DIR="$HOME/.zshrc.d"
 
 # Path stuff
 PATH="$HOME/.local/bin:$PATH"
@@ -36,13 +37,11 @@ plugins=(
 # Hide user when it's just me
 DEFAULT_USER=`whoami`
 
-# Homebrew completion
-if type brew &>/dev/null
+# Extra completion scripts
+# These NEED to be loaded before oh-my-zsh
+if [[ -f $RCFILES_DIR/completions ]]
 then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-  autoload -Uz compinit
-  compinit
+  source $RCFILES_DIR/completions
 fi
 
 source $ZSH/oh-my-zsh.sh
@@ -106,12 +105,10 @@ WORDCHARS=${WORDCHARS//\/[&.;]}
 # Aliases
 source $HOME/.dotfiles/aliases/shell
 
-# Anything under ~/.zshrc.d
-
-rcfiles_dir="$HOME/.zshrc.d"
-if [[ -d $rcfiles_dir ]]
+# Anything under the $RCFILES_DIR defined above
+if [[ -d $RCFILES_DIR ]]
 then
-  for rcfile in $rcfiles_dir/*.zsh; do
+  for rcfile in $RCFILES_DIR/*.zsh; do
     source $rcfile
   done
 fi
