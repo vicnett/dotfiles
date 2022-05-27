@@ -4,3 +4,5 @@
 	rebase-branch = rebase -i `git merge-base HEAD origin/HEAD`
 	changed-files = !git --no-pager diff --name-only HEAD HEAD~1
 	branch-summary = !git --no-pager diff --compact-summary origin/HEAD HEAD
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
