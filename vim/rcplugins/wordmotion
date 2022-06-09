@@ -1,0 +1,5 @@
+" More useful word motions for Vim
+
+Plug 'chaoren/vim-wordmotion'
+
+" vim:ft=vim
