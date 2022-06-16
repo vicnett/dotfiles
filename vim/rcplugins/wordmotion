@@ -2,6 +2,6 @@
 
 Plug 'chaoren/vim-wordmotion'
 
-let g:wordmotion_prefix = 'p'
+let g:wordmotion_prefix = '<leader>'
 
 " vim:ft=vim
