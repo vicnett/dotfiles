@@ -1,4 +1,5 @@
 [alias]
+	publish = push -u origin HEAD
 	fp = push --force-with-lease
 	amend-no-edit = commit --amend --no-edit
 	rebase-branch = rebase -i `git merge-base HEAD origin/HEAD`
