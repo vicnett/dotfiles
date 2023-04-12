@@ -10,7 +10,7 @@ set nocompatible
 let mapleader = "\<Space>"
 
 function! s:SourceConfigFilesIn(directory)
-  let directory_splat = '~/.dotfiles/vim/' . a:directory . '/*'
+  let directory_splat = a:directory . '/*'
   for config_file in split(glob(directory_splat), '\n')
     if filereadable(config_file)
       execute 'source' config_file
@@ -19,7 +19,9 @@ function! s:SourceConfigFilesIn(directory)
 endfunction
 
 call plug#begin('~/.vim/bundle')
-call s:SourceConfigFilesIn('rcplugins')
+call s:SourceConfigFilesIn('~/.dotfiles/vim/rcplugins')
+call s:SourceConfigFilesIn('~/.vimrc.d/rcplugins')
 call plug#end()
 
-call s:SourceConfigFilesIn('rcfiles')
+call s:SourceConfigFilesIn('~/.dotfiles/vim/rcfiles')
+call s:SourceConfigFilesIn('~/.vimrc.d/rcfiles')
