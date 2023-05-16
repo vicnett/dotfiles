@@ -3,4 +3,5 @@ byobu/plugins/**
 byobu/.metadata_available
 byobu/.ssh-agent
 byobu/status
+byobu/status-e
 zsh/oh-my-zsh-custom-dir/plugins/**
