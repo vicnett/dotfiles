@@ -7,3 +7,4 @@
 	branch-summary = !git --no-pager diff --compact-summary origin/HEAD HEAD
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	edit = !$EDITOR $(git status --short | awk '$1 ~ /^M|A|U/ {print $2}' )
