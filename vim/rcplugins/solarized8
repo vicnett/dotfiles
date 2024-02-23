@@ -1,6 +1,6 @@
 " Optimized Solarized colorschemes. Best served with true-color terminals!
 
-Plug  'lifepillar/vim-solarized8'
+Plug 'lifepillar/vim-solarized8', { 'branch': 'neovim' }
 
 set termguicolors
 set background=dark
