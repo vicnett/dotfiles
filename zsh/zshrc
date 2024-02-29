@@ -71,6 +71,9 @@ export RIPGREP_CONFIG_PATH="$DOTFILES_DIR/ripgreprc"
 export FZF_DEFAULT_COMMAND='fd --type f'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+# Docker rootless
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
+
 # ===================
 # == End variables ==
 # ===================
