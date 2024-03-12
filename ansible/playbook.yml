@@ -1,0 +1,7 @@
+---
+- name: Set up or update environment
+  hosts: localhost
+  vars:
+    base_dir: '{{ playbook_dir | dirname }}'
+  roles:
+    - shell

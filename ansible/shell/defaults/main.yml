@@ -1,0 +1,4 @@
+---
+zshrc_path: '{{ base_dir }}/zsh/zshrc'
+og_zshrc_path: '~/.zshrc'
+oh_my_zsh_path: '~/.oh-my-zsh'

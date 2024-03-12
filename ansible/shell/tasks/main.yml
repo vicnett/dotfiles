@@ -1,0 +1,33 @@
+---
+- name: Check on oh-my-zsh directory
+  ansible.builtin.stat:
+    path: '{{ oh_my_zsh_path }}'
+  register: omz_path_stat
+
+- ansible.builtin.assert:
+    that:
+      - omz_path_stat.stat.islnk is defined
+    msg: 'oh-my-zsh directory not found. Please install oh-my-zsh.'
+
+- name: Check on .zshrc file
+  ansible.builtin.stat:
+    path: '{{ og_zshrc_path }}'
+  register: og_zshrc_path_stat
+
+- ansible.builtin.assert:
+    that:
+      - og_zshrc_path_stat.stat.islnk is defined
+    msg: '{{ og_zshrc_path }} does not exist. Make sure zsh is installed!'
+
+- name: Backup original .zshrc file
+  ansible.builtin.copy:
+    src: '{{ og_zshrc_path }}'
+    dest: '{{ og_zshrc_path }}.og'
+  when:
+    - not og_zshrc_path_stat.stat.islnk
+
+- name: Create a symbolic link
+  ansible.builtin.file:
+    src: '{{ zshrc_path }}'
+    dest: '{{ og_zshrc_path }}'
+    state: link
