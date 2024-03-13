@@ -1,0 +1,31 @@
+---
+- name: Check on .gitignore file
+  ansible.builtin.stat:
+    path: '{{ og_gitignore_path }}'
+  register: og_gitignore_path_stat
+
+- name: Backup original .gitignore file
+  ansible.builtin.copy:
+    src: '{{ og_gitignore_path }}'
+    dest: '{{ og_gitignore_path }}.og'
+  when:
+    - og_gitignore_path_stat.stat.islnk is defined
+    - not og_gitignore_path_stat.stat.islnk
+
+- name: Create a symbolic link
+  ansible.builtin.file:
+    src: '{{ gitignore_path }}'
+    dest: '{{ og_gitignore_path }}'
+    state: link
+
+- name: Configure global .gitignore file
+  community.general.git_config:
+    name: core.excludesfile
+    scope: global
+    value: '{{ og_gitignore_path }}'
+
+- name: Include git aliases file
+  community.general.git_config:
+    name: include.path
+    scope: global
+    value: '{{ git_aliases_path }}'
