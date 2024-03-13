@@ -55,6 +55,17 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 # == End oh-my-zsh stuff ==
 # =========================
 
+# ========================
+# == Begin Python stuff ==
+# ========================
+
+# Load virtualenvwrapper
+source /usr/bin/virtualenvwrapper.sh
+
+# ======================
+# == End Python stuff ==
+# ======================
+
 # =====================
 # == Begin variables ==
 # =====================
