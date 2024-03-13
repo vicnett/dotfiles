@@ -5,3 +5,4 @@
     base_dir: '{{ playbook_dir | dirname }}'
   roles:
     - shell
+    - editor
