@@ -21,3 +21,8 @@
     src: '{{ byobu_path }}'
     dest: '{{ og_byobu_path }}'
     state: link
+
+- name: Install tpm from GitHub
+  ansible.builtin.git:
+    repo: 'https://github.com/tmux-plugins/tpm'
+    dest: '~/.tmux/plugins/tpm'
