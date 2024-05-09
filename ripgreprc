@@ -2,6 +2,9 @@
 --max-columns=100
 --max-columns-preview
 
+# Search hidden files / directories (e.g. dotfiles) by default
+--hidden
+
 # Always match newlines with .
 --multiline-dotall
 
