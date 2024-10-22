@@ -1,5 +1,5 @@
 # Don't let ripgrep vomit really long lines to my terminal, and show a preview.
---max-columns=100
+--max-columns=80
 --max-columns-preview
 
 # Search hidden files / directories (e.g. dotfiles) by default

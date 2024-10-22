@@ -1,7 +1,7 @@
 " Formatting settings
 "--------------------
 
-set textwidth=100
+set textwidth=80
 
 " only enforce line length in comments, plus other options (see :h fo-table)
 set formatoptions=jcroql1
