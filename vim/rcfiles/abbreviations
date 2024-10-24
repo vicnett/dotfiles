@@ -1,7 +1,0 @@
-" Vertical split find
-cabbrev vsfind vert sfind
-
-" Vertical split existing buffer
-cabbrev vsb vert sbuffer
-
-" vim:ft=vim

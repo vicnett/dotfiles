@@ -1,4 +1,0 @@
----
-gitignore_path: '{{ base_dir }}/git/gitignore'
-git_aliases_path: '{{ base_dir }}/aliases/git'
-og_gitignore_path: '~/.gitignore'

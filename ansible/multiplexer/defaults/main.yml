@@ -1,3 +1,0 @@
----
-byobu_path: '{{ base_dir }}/byobu'
-og_byobu_path: '~/.byobu'

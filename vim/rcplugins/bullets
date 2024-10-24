@@ -1,5 +1,0 @@
-" Automated bullet lists
-
-Plug 'bullets-vim/bullets.vim'
-
-" vim:ft=vim
