@@ -1,0 +1,6 @@
+- defaults:
+    link:
+      relink: true
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
