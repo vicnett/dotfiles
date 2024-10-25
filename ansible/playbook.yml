@@ -1,10 +1,42 @@
----
-- name: Set up or update environment
+- name: Configure and/or update CLI environment
   hosts: localhost
+  connection: local
+
   vars:
     base_dir: '{{ playbook_dir | dirname }}'
-  roles:
-    - shell
-    - editor
-    - multiplexer
-    - git
+    oh_my_zsh_path: '~/.oh-my-zsh'
+    gitignore_path: '~/.gitignore'
+    git_aliases_path: '{{ base_dir }}/aliases/git'
+
+  tasks:
+    - ansible.builtin.stat:
+        path: '{{ oh_my_zsh_path}}'
+      register: omz_path_stat
+
+    - name: Download oh-my-zsh
+      ansible.builtin.get_url:
+        url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+        dest: /tmp/oh-my-zsh-install.sh
+      when: omz_path_stat.stat.islnk is not defined
+
+    - name: Install oh-my-zsh
+      ansible.builtin.shell:
+        cmd: cat /tmp/oh-my-zsh-install.sh | sh -s -- --unattended --keep-zshrc
+      when: omz_path_stat.stat.islnk is not defined
+
+    - name: Install dotfiles
+      ansible.builtin.shell: ~/.dotfiles/install
+      register: dotbot_output
+      changed_when: '"Creating" in dotbot_output.stdout'
+
+    - name: Configure global .gitignore file
+      community.general.git_config:
+        name: core.excludesfile
+        scope: global
+        value: '{{ gitignore_path }}'
+
+    - name: Include git aliases file
+      community.general.git_config:
+        name: include.path
+        scope: global
+        value: '{{ git_aliases_path }}'

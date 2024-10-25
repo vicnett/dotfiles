@@ -1,3 +1,0 @@
----
-nvim_path: '{{ base_dir }}/vim'
-og_nvim_path: '~/.config/nvim'

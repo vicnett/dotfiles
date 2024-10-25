@@ -2,5 +2,11 @@
     link:
       relink: true
 
+- link:
+    ~/.zshrc: zsh/zshrc
+    ~/.gitignore: git/gitignore
+    ~/.config/nvim: vim
+    ~/.byobu: byobu
+
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
