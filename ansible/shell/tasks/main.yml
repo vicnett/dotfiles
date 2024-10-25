@@ -26,6 +26,13 @@
   when:
     - not og_zshrc_path_stat.stat.islnk
 
+- name: Remove original .zshrc file
+  ansible.builtin.file:
+    path: '{{ og_zshrc_path }}'
+    state: absent
+  when:
+    - not og_zshrc_path_stat.stat.islnk
+
 - name: Create a symbolic link
   ansible.builtin.file:
     src: '{{ zshrc_path }}'

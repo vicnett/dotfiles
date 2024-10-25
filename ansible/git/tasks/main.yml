@@ -12,6 +12,14 @@
     - og_gitignore_path_stat.stat.islnk is defined
     - not og_gitignore_path_stat.stat.islnk
 
+- name: Remove original .gitignore file
+  ansible.builtin.file:
+    path: '{{ og_gitignore_path }}'
+    state: absent
+  when:
+    - og_gitignore_path_stat.stat.islnk is defined
+    - not og_gitignore_path_stat.stat.islnk
+
 - name: Create a symbolic link
   ansible.builtin.file:
     src: '{{ gitignore_path }}'
