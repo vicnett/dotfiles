@@ -2,8 +2,13 @@
     link:
       relink: true
 
+- create:
+  - ~/.config/
+
 - link:
-    ~/.zshrc: zsh/zshrc
+    ~/.zshrc:
+      force: true
+      path: zsh/zshrc
     ~/.gitignore: git/gitignore
     ~/.config/nvim: vim
     ~/.byobu: byobu
