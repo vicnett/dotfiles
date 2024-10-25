@@ -9,6 +9,21 @@
     git_aliases_path: '{{ base_dir }}/aliases/git'
 
   tasks:
+    - name: Install packages
+      ansible.builtin.package:
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages: "{{ lookup('file', base_dir ~ '/manjaro_packages').splitlines() }}"
+      become: true
+      tags: packages
+
+    - name: Change shell to zsh
+      become: yes
+      ansible.builtin.user:
+        name: "{{ ansible_user_id }}"
+        shell: /usr/bin/zsh
+
     - ansible.builtin.stat:
         path: '{{ oh_my_zsh_path}}'
       register: omz_path_stat
