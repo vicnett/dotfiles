@@ -1,0 +1,27 @@
+# XDG dirs
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+# ZSH
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export HISTFILE="$ZDOTDIR/.zhistory"
+export HISTSIZE=10000
+export SAVEHIST=10000
+
+# Neovim
+export EDITOR="nvim"
+export VISUAL="nvim"
+export DIFFPROG='nvim -d'
+
+# Ripgrep
+export RIPGREP_CONFIG_PATH="$DOTFILES_DIR/ripgreprc"
+
+# FZF
+export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# Docker Rootless
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
+
