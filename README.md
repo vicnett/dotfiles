@@ -26,17 +26,14 @@ emulator for everything to work as expected.
 Some of the configs also expect a "[nerd font](https://www.nerdfonts.com/)" to
 be configured in the terminal emulator.
 
-Apart from these, all that you should need on top of a base Manjaro install for
-the setup script to work is Git.
+Anyway, all you should need for the setup script to work is a Manjaro install.
 
 ### Installing
 
-Simply clone this repository to `~/.dotfiles` (some of the configs expect this
-path so no option to put it elsewhere for now), and then from within the cloned
-repo run:
+You can download and run the install script with this handy-dandy one-liner:
 
 ```shell
-./setup.sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/vicnett/dotfiles/refs/heads/main/setup.sh)"
 ```
 
 You will be prompted for a sudo password which will solely be used to install
@@ -54,6 +51,11 @@ exec zsh
 That, or you happened to already have your configs (visual ones at least)
 exactly the same as mine! Which would be weird but also, I mean... good on you
 for having great taste!
+
+If you're wary of running random scripts from strangers on the Internet... Well,
+it's probably a good idea to be honest... Anyway, the script is super small and
+simple so you can [take a peek](setup.sh) and/or run the commands inside
+manually.
 
 ### Updating
 
