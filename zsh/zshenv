@@ -4,14 +4,14 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
+# Zsh config directory
+ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
+# Dotfiles directory
+DOTFILES_DIR="$HOME/.dotfiles"
+
 # Add .local/bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
-
-# ZSH
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-export HISTFILE="$ZDOTDIR/.zhistory"
-export HISTSIZE=10000
-export SAVEHIST=10000
 
 # Neovim
 export EDITOR="nvim"
@@ -19,7 +19,7 @@ export VISUAL="nvim"
 export DIFFPROG='nvim -d'
 
 # Ripgrep
-export RIPGREP_CONFIG_PATH="$HOME/.dotfiles/ripgreprc"
+export RIPGREP_CONFIG_PATH="$DOTFILES_DIR/ripgreprc"
 
 # FZF
 export FZF_DEFAULT_COMMAND='fd --type f'
