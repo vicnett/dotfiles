@@ -4,7 +4,6 @@
 
   vars:
     base_dir: '{{ playbook_dir | dirname }}'
-    oh_my_zsh_path: '~/.oh-my-zsh'
     gitignore_path: '~/.gitignore'
     git_aliases_path: '{{ base_dir }}/aliases/git'
 
@@ -23,21 +22,6 @@
       ansible.builtin.user:
         name: "{{ ansible_user_id }}"
         shell: /usr/bin/zsh
-
-    - ansible.builtin.stat:
-        path: '{{ oh_my_zsh_path}}'
-      register: omz_path_stat
-
-    - name: Download oh-my-zsh
-      ansible.builtin.get_url:
-        url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-        dest: /tmp/oh-my-zsh-install.sh
-      when: omz_path_stat.stat.islnk is not defined
-
-    - name: Install oh-my-zsh
-      ansible.builtin.shell:
-        cmd: cat /tmp/oh-my-zsh-install.sh | sh -s -- --unattended --keep-zshrc
-      when: omz_path_stat.stat.islnk is not defined
 
     - name: Install dotfiles
       ansible.builtin.shell: ~/.dotfiles/install

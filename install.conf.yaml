@@ -4,11 +4,13 @@
 
 - create:
   - ~/.config/
+  - ~/.config/zsh
 
 - link:
-    ~/.zshrc:
-      force: true
-      path: zsh/zshrc
+    ~/.zshenv: zsh/zshenv
+    ~/.config/zsh/.zshrc: zsh/zshrc
+    ~/.config/zsh/.zprofile: zsh/zprofile
+    ~/.config/zsh/.p10k.zsh: zsh/p10k.zsh
     ~/.gitignore: git/gitignore
     ~/.config/nvim: vim
     ~/.byobu: byobu

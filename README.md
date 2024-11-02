@@ -41,16 +41,14 @@ packages. After a bunch of terminal output (hopefully none of it red...) you'll
 be back to your prompt (which should actually look a lot more like _my_ prompt
 if everything went well...
 
-If you see no changes, you may need to reset your shell session and trigger the
-config files to be read with:
+To make the changes effective, reload your shell with:
 
 ```shell
-exec zsh
+exec zsh -l
 ```
 
-That, or you happened to already have your configs (visual ones at least)
-exactly the same as mine! Which would be weird but also, I mean... good on you
-for having great taste!
+At first re-launch of zsh, you will probably see a bunch of progress bars and
+other terminal output as zinit and various plugins are automatically installed.
 
 If you're wary of running random scripts from strangers on the Internet... Well,
 it's probably a good idea to be honest... Anyway, the script is super small and
@@ -82,9 +80,6 @@ But eventually I'd like to either use the same `setup.sh` script or an
 be for update checks to be automated on login, and for them to be auto-applied
 with no action needed from me unless I need to put in my password to install
 a package.
-
-While I do want to move away from Oh My Zsh, the automated updates are something
-I would definitely like to replicate!
 
 ## How it works
 
@@ -118,8 +113,6 @@ For now, I've settled for a single-file playbook to do all of the (admittedly
 very few) tasks I need it to do:
 
 - Install packages for the tools being configured
-- Run installation steps for tools that can't (or shouldn't) be installed via
-  system packages (work-in-progress, so far it's just `oh-my-zsh` as a PoC)
 - Change the default shell to `zsh`
 - Run some configs that aren't simple file copying/linking (i.e. Git configs)
 - Run Dotbot, which in turn handles creating/linking config files
@@ -141,7 +134,7 @@ tl;dr:
 
 - `docker-test-run.sh` builds and runs a minimal Manjaro image with `setup.sh`
   run based on the local state of this repo
-- `docker-test-norun.sh` does the same but without running `setup.sh`, to enable
+- `docker-test-norun.sh` does the same but without running `setup.sh`, to allow
   debugging within the Docker environment
 
 As much as I've tried to make the setup process
@@ -200,10 +193,11 @@ replacing them with symbolic links. If there's an existing link, it replaces it,
 and if there's an existing file, it errors out unless you give it the `force`
 option.
 
-I've set the `force` option only on the files that gave me issues in the test
-Docker environment, and I'm reluctant to setting it globally. If you run into
-such issues, you can selectively add `force: true` in `install.conf.yaml` and
-then re-run the playbook with `ansible-playbook ansible/playbook.yml`.
+I haven't set the `force` option on any file, and I'd prefer to keep it that way
+unless/until Dotbot adds a feature to backup the files instead of destroying
+them. If you encounter such issues, you can selectively add `force: true` in
+`install.conf.yaml` and then re-run the playbook with `ansible-playbook
+ansible/playbook.yml`.
 
 I might see if I can contribute a "backup file if exists" feature to Dotbot and
 use it instead, but there's years-old open issues about such a feature on that
