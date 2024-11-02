@@ -83,9 +83,6 @@ be for update checks to be automated on login, and for them to be auto-applied
 with no action needed from me unless I need to put in my password to install
 a package.
 
-While I do want to move away from Oh My Zsh, the automated updates are something
-I would definitely like to replicate!
-
 ## How it works
 
 Tools used:
@@ -119,7 +116,7 @@ very few) tasks I need it to do:
 
 - Install packages for the tools being configured
 - Run installation steps for tools that can't (or shouldn't) be installed via
-  system packages (work-in-progress, so far it's just `oh-my-zsh` as a PoC)
+  system packages
 - Change the default shell to `zsh`
 - Run some configs that aren't simple file copying/linking (i.e. Git configs)
 - Run Dotbot, which in turn handles creating/linking config files

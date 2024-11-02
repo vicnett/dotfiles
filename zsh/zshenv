@@ -4,6 +4,9 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
+# Add .local/bin to PATH
+export PATH="$HOME/.local/bin:$PATH"
+
 # ZSH
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export HISTFILE="$ZDOTDIR/.zhistory"
@@ -16,7 +19,7 @@ export VISUAL="nvim"
 export DIFFPROG='nvim -d'
 
 # Ripgrep
-export RIPGREP_CONFIG_PATH="$DOTFILES_DIR/ripgreprc"
+export RIPGREP_CONFIG_PATH="$HOME/.dotfiles/ripgreprc"
 
 # FZF
 export FZF_DEFAULT_COMMAND='fd --type f'
@@ -28,7 +31,3 @@ export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 # Ruby gems
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export PATH="$PATH:$GEM_HOME/bin"
-
-# oh-my-zsh
-export ZSH="$HOME/.oh-my-zsh"
-export ZSH_CUSTOM="$DOTFILES_DIR/zsh/oh-my-zsh-custom-dir"

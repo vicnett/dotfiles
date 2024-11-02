@@ -1,52 +1,5 @@
 # File path definitions
-DOTFILES_DIR="$HOME/.dotfiles"
 RCFILES_DIR="$HOME/.zshrc.d"
-
-# Path stuff
-PATH="$HOME/.local/bin:$PATH"
-
-# ===========================
-# == Begin oh-my-zsh stuff ==
-# ===========================
-
-# Theme
-ZSH_THEME="agnoster"
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
-# Change the command execution time format
-HIST_STAMPS="yyyy-mm-dd"
-
-# Plugins
-plugins=(
-  zsh-syntax-highlighting
-  zsh-autosuggestions
-  fzf
-)
-
-# Hide user when it's just me
-DEFAULT_USER=`whoami`
-
-# Extra completion scripts
-# These NEED to be loaded before oh-my-zsh
-if [[ -f $RCFILES_DIR/completions ]]
-then
-  source $RCFILES_DIR/completions
-fi
-
-source $ZSH/oh-my-zsh.sh
-
-# Plugin configs
-# zsh-autosuggestions
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
-
-# =========================
-# == End oh-my-zsh stuff ==
-# =========================
 
 # ========================
 # == Begin Python stuff ==
