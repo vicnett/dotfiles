@@ -39,6 +39,8 @@ HISTFILE="$ZDOTDIR/.zhistory"
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 
+# Save timestamps in history file
+setopt extended_history
 # Persistent history file
 setopt append_history
 # Write to the history file upon running each command, not upon exiting shell
