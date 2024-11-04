@@ -1,5 +1,7 @@
 name: Build Docker image as test
 
+run-name: "[${{ github.ref_name }}] Docker build"
+
 on:
   schedule:
     - cron: '12 17 * * FRI'
