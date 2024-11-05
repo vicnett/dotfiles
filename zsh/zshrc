@@ -32,6 +32,10 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 
+# Add key bindings
+zinit snippet OMZL::key-bindings.zsh
+bindkey '^H' backward-kill-word
+
 # Color for autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 
