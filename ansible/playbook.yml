@@ -28,14 +28,29 @@
       register: dotbot_output
       changed_when: '"Creating" in dotbot_output.stdout'
 
-    - name: Configure global .gitignore file
-      community.general.git_config:
-        name: core.excludesfile
-        scope: global
-        value: '{{ gitignore_path }}'
+    - name: Git configuration
+      block:
 
-    - name: Include git aliases file
-      community.general.git_config:
-        name: include.path
-        scope: global
-        value: '{{ git_aliases_path }}'
+      - name: Configure global .gitignore file
+        community.general.git_config:
+          name: core.excludesfile
+          scope: global
+          value: '{{ gitignore_path }}'
+
+      - name: Include git aliases file
+        community.general.git_config:
+          name: include.path
+          scope: global
+          value: '{{ git_aliases_path }}'
+
+      - name: Make default branch "main"
+        community.general.git_config:
+          name: init.defaultBranch
+          scope: global
+          value: main
+
+      - name: Automatically set up remote tracking branch when pushing
+        community.general.git_config:
+          name: push.autoSetupRemote
+          scope: global
+          value: true
