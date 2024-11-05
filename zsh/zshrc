@@ -13,7 +13,7 @@ ZINIT_HOME="$XDG_DATA_HOME/zinit/zinit.git"
 # Don't use vi mode; force Emacs mode back on
 # Zsh automatically turns on vi mode when the values of $EDITOR and/or $VISUAL
 # contain 'vi'
-bindkey -o
+bindkey -e
 
 # Download Zinit, if it's not there yet
 if [ ! -d "$ZINIT_HOME" ]; then
