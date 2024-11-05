@@ -21,6 +21,9 @@ export DIFFPROG='nvim -d'
 # Ripgrep
 export RIPGREP_CONFIG_PATH="$DOTFILES_DIR/ripgreprc"
 
+# Bat theme
+export BAT_THEME='Solarized (dark)'
+
 # FZF
 export FZF_DEFAULT_COMMAND='fd --type f'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
