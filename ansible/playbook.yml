@@ -4,7 +4,7 @@
 
   vars:
     base_dir: '{{ playbook_dir | dirname }}'
-    gitignore_path: '~/.gitignore'
+    gitignore_path: '{{ base_dir }}/git/gitignore'
     git_aliases_path: '{{ base_dir }}/aliases/git'
 
   tasks:
