@@ -1,5 +1,0 @@
-" obsession.vim: continuously updated session files 
-
-Plug 'tpope/vim-obsession'
-
-" vim:ft=vim

@@ -1,5 +1,0 @@
-" gutentags - A Vim plugin that manages your tag files
-
-Plug 'ludovicchabant/vim-gutentags'
-
-" vim:ft=vim
