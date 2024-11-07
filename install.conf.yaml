@@ -11,6 +11,7 @@
     ~/.config/zsh/.zshrc: zsh/zshrc
     ~/.config/zsh/.zprofile: zsh/zprofile
     ~/.config/zsh/.p10k.zsh: zsh/p10k.zsh
+    ~/.config/zsh/dircolors.zsh: zsh/dircolors.zsh
     ~/.config/nvim: vim
     ~/.byobu: byobu
 

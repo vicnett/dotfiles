@@ -97,7 +97,7 @@ WORDCHARS=${WORDCHARS//\/[&.;]}
 source $DOTFILES_DIR/aliases/shell
 
 # Load dircolors
-eval `dircolors $DOTFILES_DIR/dircolors.256dark`
+source $ZDOTDIR/dircolors.zsh
 
 # Colors for fzf
 # https://github.com/junegunn/fzf/wiki/Color-schemes#alternate-solarized-lightdark-theme
