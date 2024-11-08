@@ -15,7 +15,6 @@
   "vim-rhubarb": { "branch": "master", "commit": "ee69335de176d9325267b0fd2597a22901d927b1" },
   "vim-sleuth": { "branch": "master", "commit": "be69bff86754b1aa5adcbb527d7fcd1635a84080" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
-  "vim-system-copy": { "branch": "master", "commit": "8abd9ed21016bdc21b458c79da3b9ac0ee25c1ce" },
   "vim-textobj-codeblock": { "branch": "master", "commit": "7658826f1a13a2865fb65b64481c40968fd780c1" },
   "vim-textobj-entire": { "branch": "master", "commit": "64a856c9dff3425ed8a863b9ec0a21dbaee6fb3a" },
   "vim-textobj-indent": { "branch": "master", "commit": "deb76867c302f933c8f21753806cbf2d8461b548" },
