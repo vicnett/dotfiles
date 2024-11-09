@@ -11,8 +11,7 @@ RCFILES_DIR="$HOME/.zshrc.d"
 ZINIT_HOME="$XDG_DATA_HOME/zinit/zinit.git"
 
 # Don't use vi mode; force Emacs mode back on
-# Zsh automatically turns on vi mode when the values of $EDITOR and/or $VISUAL
-# contain 'vi'
+# Zsh turns on vi mode when the values of $EDITOR and/or $VISUAL contain 'vi'
 bindkey -e
 
 # Download Zinit, if it's not there yet
@@ -24,107 +23,29 @@ fi
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Load Powerlevel10k theme
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+# Load plugins
+source $DOTFILES_DIR/zsh/plugins.zsh
 
-# Load zsh plugins
-zinit light zdharma-continuum/fast-syntax-highlighting
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
+# Source config files
+source $DOTFILES_DIR/zsh/configs/history.zsh
+source $DOTFILES_DIR/zsh/configs/visual.zsh
+source $DOTFILES_DIR/zsh/configs/completions.zsh
+
+# Source aliases
+source $DOTFILES_DIR/aliases/shell
 
 # Add key bindings
 zinit snippet OMZL::key-bindings.zsh
 bindkey '^H' backward-kill-word
 
-# Color for autosuggestions
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
-
 # Load virtualenvwrapper
 source /usr/bin/virtualenvwrapper.sh
-
-# Zsh history settings
-
-HISTFILE="$ZDOTDIR/.zhistory"
-HISTSIZE=10000
-SAVEHIST=$HISTSIZE
-
-# Save timestamps in history file
-setopt extended_history
-# Persistent history file
-setopt append_history
-# Write to the history file upon running each command, not upon exiting shell
-setopt inc_append_history
-# Delete the older event if a new event is a duplicate of it
-setopt hist_ignore_all_dups
-# Don't write to history if the command starts with a space
-setopt hist_ignore_space
-
-# Search history using already-typed text with up/down arrows
-zinit load 'zsh-users/zsh-history-substring-search'
-zinit ice wait atload'_history_substring_search_config'
-# Key bindings for using zsh-history-substring-search via up/down arrows
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-# Colors for matching and non-matching search terms
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=blue'
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='fg=red'
-# Only match commands that start the same as the search term
-HISTORY_SUBSTRING_SEARCH_PREFIXED='foo' # it just needs to be non-empty
-
-# Zsh completion settings (compinit needs to be run before fzf-tab is loaded)
-autoload -Uz compinit && compinit
-zinit cdreplay -q
-# Completion matcher list:
-# - try case-insensitive matching if nothing matches
-# - partially match typed words (i.e. bar<tab> would match foobar)
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-# Highlight selected item in the menu
-zstyle ':completion:*' menu select
-# Colored completion (different colors for dirs/files/etc)
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-# automatically find new executables in path
-zstyle ':completion:*' rehash true
-# Speed up completions
-zstyle ':completion:*' accept-exact '*(N)'
 
 # Don't beep at me, bro!
 setopt nobeep
 
 # Better word-wise command editing
 WORDCHARS=${WORDCHARS//\/[&.;]}
-
-# Source aliases
-source $DOTFILES_DIR/aliases/shell
-
-# Load dircolors
-source $ZDOTDIR/dircolors.zsh
-
-# Colors for fzf
-# https://github.com/junegunn/fzf/wiki/Color-schemes#alternate-solarized-lightdark-theme
-_gen_fzf_default_opts() {
-  local base03="#002b36"
-  local base02="#073642"
-  local base01="#586e75"
-  local base00="#657b83"
-  local base0="#839496"
-  local base1="#93a1a1"
-  local base2="#eee8d5"
-  local base3="#fdf6e3"
-  local yellow="#b58900"
-  local orange="#cb4b16"
-  local red="#dc322f"
-  local magenta="#d33682"
-  local violet="#6c71c4"
-  local blue="#268bd2"
-  local cyan="#2aa198"
-  local green="#859900"
-
-  export FZF_DEFAULT_OPTS="
-    --color fg:-1,bg:-1,hl:$blue,fg+:$base2,bg+:$base02,hl+:$blue
-    --color info:$yellow,prompt:$yellow,pointer:$base3,marker:$base3,spinner:$yellow
-  "
-}
-_gen_fzf_default_opts
 
 # Source extra local configs
 if [[ -d $RCFILES_DIR ]]
@@ -135,7 +56,7 @@ then
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+[[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
 
 # Shell integrations
 eval "$(fzf --zsh)"
