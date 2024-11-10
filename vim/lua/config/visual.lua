@@ -7,7 +7,7 @@ vim.opt.colorcolumn = "+1"
 -- Display extra whitespace
 vim.opt.list = true
 vim.opt.listchars:append({
-	tab = "▏ ",
+	tab = "▏›",
 	leadmultispace = "▏ ",
 	trail = "·",
 	nbsp = "·",
