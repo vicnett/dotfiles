@@ -8,10 +8,10 @@ vim.opt.colorcolumn = "+1"
 local vert_char = "▏"
 vim.opt.list = true
 vim.opt.listchars:append({
-	tab = vert_char .. "▏›",
-	trail = "·",
-	nbsp = "·",
-	multispace = "·",
+  tab = vert_char .. "▏›",
+  trail = "·",
+  nbsp = "·",
+  multispace = "·",
 })
 
 -- Automatically adapt leadmultispace to current indentation settings, adapted
