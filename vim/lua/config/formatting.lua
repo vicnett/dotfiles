@@ -15,8 +15,10 @@ vim.opt.textwidth = 80
 -- 1 Don't break a line after a one-letter word; break it before it if possible
 vim.opt.formatoptions = jtcroql1
 
--- 2 space indentation
+-- Default to 2 space indentation
+-- Note: vim-sleuth will dynamically adjust these based on context
 vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.shiftwidth = 0
+vim.opt.softtabstop = -1
 vim.opt.shiftround = true
 vim.opt.expandtab = true
