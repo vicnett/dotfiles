@@ -1,4 +1,4 @@
-FROM manjarolinux/base AS manjaro-base
+FROM archlinux AS arch-base
 
 # Download "base" packages list from Manjaro repo
 ADD https://gitlab.manjaro.org/profiles-and-settings/iso-profiles/-/raw/master/shared/Packages-Root .
@@ -6,19 +6,21 @@ ADD https://gitlab.manjaro.org/profiles-and-settings/iso-profiles/-/raw/master/s
 RUN <<-EOF
   pacman -Syu --noconfirm
   pacman -S --noconfirm --needed $(comm -12 <(pacman -Slq | sort) <(sort Packages-Root))
+  id -u test_user &>/dev/null || (useradd -d /test_user -m test_user && \
+  echo "test_user ALL=(ALL) NOPASSWD: ALL" >>/etc/sudoers)
 EOF
 
-# Switch to unprivileged "builder" user already incldued in the manjaro image.
+# Switch to unprivileged "test_user" user already incldued in the manjaro image.
 # It has passwordless sudo privileges.
-# We also make sure LOGNAME is builder to avoid Ansible issues...
-USER builder
-ENV LOGNAME=builder
+# We also make sure LOGNAME is test_user to avoid Ansible issues...
+USER test_user
+ENV LOGNAME=test_user
 
 # Set an interactive bash shell as entrypoint here in case we need to debug
 # before zsh is installed
 ENTRYPOINT [ "/usr/bin/bash", "--login" ]
 
-FROM manjaro-base AS install
+FROM arch-base AS install
 
 # Install pipx, Ansible, and the packages Ansible will install so this step will
 # be cached and not re-run every single docker build. Ansible is super slow to
@@ -35,8 +37,8 @@ EOF
 FROM install AS copy
 
 # Copy repo to its destination
-COPY --chown=builder:builder . /builder/.dotfiles
-WORKDIR /builder/.dotfiles
+COPY --chown=test_user:test_user . /test_user/.dotfiles
+WORKDIR /test_user/.dotfiles
 
 FROM copy AS run
 
