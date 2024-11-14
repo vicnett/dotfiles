@@ -39,7 +39,9 @@ zinit snippet OMZL::key-bindings.zsh
 bindkey '^H' backward-kill-word
 
 # Load virtualenvwrapper
-source /usr/bin/virtualenvwrapper.sh
+if [[ -x /usr/bin/virtualenvwrapper.sh ]]; then
+  source /usr/bin/virtualenvwrapper.sh
+fi
 
 # Don't beep at me, bro!
 setopt nobeep
