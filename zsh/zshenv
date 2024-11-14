@@ -32,5 +32,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 
 # Ruby gems
-export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-export PATH="$PATH:$GEM_HOME/bin"
+if [[ -x $(command -v ruby) ]]; then
+  export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+  export PATH="$PATH:$GEM_HOME/bin"
+fi
