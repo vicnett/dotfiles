@@ -47,6 +47,12 @@ RUN <<-EOF
   USE_EMOJI=0 ./setup.sh
 EOF
 
+# Run Zsh so Zinit can get set up
+RUN <<-EOF
+  zsh -i -c -- '@zinit-scheduler burst'
+  nvim --headless "+Lazy! restore" +qa
+EOF
+
 # Now that zsh is (or should be) installed, we can make the entrypoint an
 # interactive zsh shell
 ENTRYPOINT [ "/usr/bin/zsh", "--login" ]
