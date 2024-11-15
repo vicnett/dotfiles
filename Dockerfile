@@ -22,17 +22,18 @@ ENTRYPOINT [ "/usr/bin/bash", "--login" ]
 
 FROM arch-base AS install
 
-# Install pipx, Ansible, and the packages Ansible will install so this step will
-# be cached and not re-run every single docker build. Ansible is super slow to
-# install for some reason, and there's no need to excessively download packages
-# from the Manjaro repo every build...
-COPY manjaro_packages .
+# Install pipx and Ansible so this step will be cached and not re-run every
+# single docker build. Ansible is super slow to install for some reason...
 RUN <<-EOF
   export USE_EMOJI=0 
   sudo pacman -S --needed --noconfirm python-pipx
-  sudo pacman -S --needed --noconfirm - < manjaro_packages
   pipx install --include-deps ansible
 EOF
+
+# Install the packages Ansible will want to install later. There's no need to
+# excessively download packages from the Manjaro repo every build...
+COPY manjaro_packages .
+RUN sudo pacman -S --needed --noconfirm - < manjaro_packages
 
 FROM install AS copy
 
