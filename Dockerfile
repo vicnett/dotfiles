@@ -55,6 +55,7 @@ EOF
 RUN <<-EOF
   zsh -i -c -- '@zinit-scheduler burst'
   nvim --headless "+Lazy! restore" +qa
+  nvim --headless "+TSUpdateSync" +qa
 EOF
 
 # Now that zsh is (or should be) installed, we can make the entrypoint an
