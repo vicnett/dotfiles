@@ -28,5 +28,11 @@ return {
       builtin.help_tags,
       { desc = "Telescope help tags" }
     )
+    vim.keymap.set(
+      "n",
+      "<leader>fr",
+      builtin.help_tags,
+      { desc = "Telescope resume" }
+    )
   end,
 }
