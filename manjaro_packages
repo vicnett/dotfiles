@@ -4,5 +4,7 @@ ctags
 fd
 fzf
 neovim
+npm
 ripgrep
+unzip
 zsh
