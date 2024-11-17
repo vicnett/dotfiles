@@ -5,6 +5,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     { "j-hui/fidget.nvim", config = true },
+    "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
     -- Things to do only when the current buffer attaches to a language server
@@ -135,6 +136,11 @@ return {
     })
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities = vim.tbl_deep_extend(
+      "force",
+      capabilities,
+      require("cmp_nvim_lsp").default_capabilities()
+    )
 
     local servers = {
       lua_ls = {
