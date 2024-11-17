@@ -26,6 +26,7 @@ FROM arch-base AS install
 # single docker build. Ansible is super slow to install for some reason...
 RUN <<-EOF
   export USE_EMOJI=0 
+  sudo pacman -Syu --noconfirm
   sudo pacman -S --needed --noconfirm python-pipx
   pipx install --include-deps ansible
 EOF
@@ -33,7 +34,10 @@ EOF
 # Install the packages Ansible will want to install later. There's no need to
 # excessively download packages from the Manjaro repo every build...
 COPY manjaro_packages .
-RUN sudo pacman -S --needed --noconfirm - < manjaro_packages
+RUN <<-EOF
+  sudo pacman -Syu --noconfirm
+  sudo pacman -S --needed --noconfirm - < manjaro_packages
+EOF
 
 FROM install AS copy
 
