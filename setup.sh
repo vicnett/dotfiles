@@ -11,7 +11,7 @@ pipx install --include-deps ansible
 
 if [ ! -d $DOTFILES_DIR ]
 then
-  git clone https://github.com/vicnett/dotfiles.git $DOTFILES_DIR
+  git clone --recurse-submodules https://github.com/vicnett/dotfiles.git $DOTFILES_DIR
 fi
 
 if [ -f $PLAYBOOK_PATH ]

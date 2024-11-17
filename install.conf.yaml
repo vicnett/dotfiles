@@ -7,13 +7,14 @@
   - ~/.config/zsh
 
 - link:
-    ~/.zshenv: zsh/zshenv
-    ~/.config/zsh/.zshrc: zsh/zshrc
-    ~/.config/zsh/.zprofile: zsh/zprofile
-    ~/.config/zsh/.p10k.zsh: zsh/p10k.zsh
-    ~/.config/zsh/dircolors.zsh: zsh/dircolors.zsh
-    ~/.config/nvim: vim
     ~/.byobu: byobu
+    ~/.config/alacritty: alacritty
+    ~/.config/nvim: vim
+    ~/.config/zsh/.p10k.zsh: zsh/p10k.zsh
+    ~/.config/zsh/.zprofile: zsh/zprofile
+    ~/.config/zsh/.zshrc: zsh/zshrc
+    ~/.config/zsh/dircolors.zsh: zsh/dircolors.zsh
+    ~/.zshenv: zsh/zshenv
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
