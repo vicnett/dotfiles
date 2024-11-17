@@ -162,6 +162,7 @@ return {
       "stylua", -- Lua
       --linters
       "flake8", -- Python
+      "hadolint", -- Dockerfile
       "jsonlint", -- Json
       "markdownlint", -- Markdown
       "tflint", -- Terraform

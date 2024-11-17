@@ -20,6 +20,7 @@
   "mini.icons": { "branch": "main", "commit": "a2742459f0ee32806c2438ca06b4d8b331f3f4d4" },
   "nvim-cmp": { "branch": "main", "commit": "983453e32cb35533a119725883c04436d16c0120" },
   "nvim-highlight-colors": { "branch": "main", "commit": "e967e2ba13fd4ca731b41d0e5cc1ac2edcd6e25e" },
+  "nvim-lint": { "branch": "master", "commit": "36da8dd0ddc4f88e0beae234c20e75397326f143" },
   "nvim-lspconfig": { "branch": "master", "commit": "056f569f71e4b726323b799b9cfacc53653bceb3" },
   "nvim-solarized-lua": { "branch": "master", "commit": "d69a263c97cbc765ca442d682b3283aefd61d4ac" },
   "nvim-treesitter": { "branch": "master", "commit": "cfc6f2c117aaaa82f19bcce44deec2c194d900ab" },
