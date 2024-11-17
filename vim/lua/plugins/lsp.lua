@@ -131,9 +131,6 @@ return {
             )
           end, "[T]oggle Inlay [H]ints")
         end
-
-        -- Reset the "formatexpr" option so "gqq" will work as expected
-        vim.api.nvim_set_option_value("formatexpr", "", { buf = event.buf })
       end,
     })
 
