@@ -3,19 +3,42 @@
   connection: local
 
   vars:
+    arch_distro: "Archlinux"
+    ubuntu_distro: "Ubuntu"
+    supported_distros: [ "{{ arch_distro }}", "{{ ubuntu_distro }}" ]
     base_dir: '{{ playbook_dir | dirname }}'
     gitignore_path: '{{ base_dir }}/git/gitignore'
     git_aliases_path: '{{ base_dir }}/aliases/git'
+    arch_packages: "{{ lookup('file', base_dir ~ '/arch_packages').splitlines() }}"
+    ubuntu_packages: "{{ lookup('file', base_dir ~ '/ubuntu_packages').splitlines() }}"
 
   tasks:
-    - name: Install packages
+    - ansible.builtin.debug:
+        msg: "supported_distros: {{ supported_distros }}"
+    - name: Stop if OS is unsupported
+      fail:
+        msg: "{{ ansible_distribution }} not supported"
+      when: ansible_distribution not in supported_distros
+
+    - name: Install packages (Arch)
       ansible.builtin.package:
         name: "{{ packages }}"
         state: present
       vars:
-        packages: "{{ lookup('file', base_dir ~ '/manjaro_packages').splitlines() }}"
+        packages: "{{ arch_packages }}"
       become: true
       tags: packages
+      when: ansible_distribution == arch_distro
+
+    - name: Install packages (Ubuntu)
+      ansible.builtin.package:
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages: "{{ ubuntu_packages }}"
+      become: true
+      tags: packages
+      when: ansible_distribution == ubuntu_distro
 
     - name: Change shell to zsh
       become: yes

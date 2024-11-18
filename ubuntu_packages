@@ -1,0 +1,10 @@
+alacritty
+build-essential
+byobu
+universal-ctags
+fd-find
+fzf
+npm
+ripgrep
+unzip
+zsh
