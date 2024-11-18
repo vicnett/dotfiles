@@ -33,10 +33,10 @@ EOF
 
 # Install the packages Ansible will want to install later. There's no need to
 # excessively download packages from the Manjaro repo every build...
-COPY manjaro_packages .
+COPY arch_packages .
 RUN <<-EOF
   sudo pacman -Syu --noconfirm
-  sudo pacman -S --needed --noconfirm - < manjaro_packages
+  sudo pacman -S --needed --noconfirm - < arch_packages
 EOF
 
 FROM install AS copy

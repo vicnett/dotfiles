@@ -61,4 +61,8 @@ fi
 [[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
 
 # Shell integrations
-eval "$(fzf --zsh)"
+if [ -f ~/.fzf.zsh ]; then
+  source ~/.fzf.zsh
+else
+  eval "$(fzf --zsh)"
+fi
