@@ -1,8 +1,5 @@
-import = [
-  "~/.config/alacritty/themes/themes/solarized_dark.toml"
-]
 
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 args = ["-l"]
 
@@ -14,4 +11,11 @@ startup_mode = "Maximized"
 
 [font]
 normal = { family = "DejaVuSansM Nerd Font Mono", style = "Regular" }
+
+[general]
+import = [
+  "~/.config/alacritty/themes/themes/solarized_dark.toml"
+]
+
+[terminal]
 
