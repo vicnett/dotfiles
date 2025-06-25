@@ -114,3 +114,6 @@ vim.opt.diffopt:append({
   "linematch:60",
   algorithm = histogram,
 })
+
+-- Keep 5 lines of text visible when scrolling past current view
+vim.opt.scrolloff = 5
