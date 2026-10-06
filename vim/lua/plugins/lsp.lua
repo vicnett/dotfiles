@@ -90,7 +90,7 @@ return {
 
         if
           client
-          and client.supports_method(
+          and client:supports_method(
             vim.lsp.protocol.Methods.textDocument_documentHighlight
           )
         then
@@ -122,7 +122,7 @@ return {
 
         if
           client
-          and client.supports_method(
+          and client:supports_method(
             vim.lsp.protocol.Methods.textDocument_inlayHint
           )
         then
